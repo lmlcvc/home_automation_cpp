@@ -264,8 +264,7 @@ ApplicationWindow {
 
             ColumnLayout {
                 Layout.preferredWidth: 850
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+                Layout.preferredHeight: parent.height
 
                 LargeLabel {
                     id: sectionLabel
@@ -275,23 +274,27 @@ ApplicationWindow {
                     Layout.alignment: Qt.AlignLeft
                 }
 
+                // TODO get real data
 
-                Rectangle {
-                    Layout.fillHeight: true
+                ChartView {
+                    title: "Power consumption"
+                    legend.visible: false
 
-                    Column {
-                        x: parent.width * 0.88
-                        y: parent.height * 0.56
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 300
+                    Layout.alignment: Qt.AlignTop
 
-                        //                    ChartView {
-                        //                        antialiasing: true
+                    theme: ChartView.ChartThemeDark
+                    antialiasing: true
 
-                        //                        PieSeries {
-                        //                            id: pieSeries
-                        //                            PieSlice { label: "eaten"; value: 94.9 }
-                        //                            PieSlice { label: "not yet eaten"; value: 5.1 }
-                        //                        }
-                        //                    }
+                    SplineSeries {
+                        XYPoint { x: 0; y: 0.0 }
+                        XYPoint { x: 1.1; y: 2.4 }
+                        XYPoint { x: 1.9; y: 2.4 }
+                        XYPoint { x: 2.1; y: 2.1 }
+                        XYPoint { x: 2.7; y: 2.2 }
+                        XYPoint { x: 3.4; y: 2.3 }
+                        XYPoint { x: 4.1; y: 3.1 }
                     }
                 }
             }

@@ -1,6 +1,3 @@
-# Copyright (C) 2022 The Qt Company Ltd.
-# SPDX-License-Identifier: BSD-3-Clause
-
 cmake_minimum_required(VERSION 3.16)
 project(home-automation LANGUAGES CXX)
 
@@ -12,6 +9,9 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick QuickControls2)
 qt_add_executable(home-automation WIN32 MACOSX_BUNDLE
     home-automation.cpp
 )
+
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+target_link_libraries(home-automation PRIVATE Qt6::Widgets)
 
 qt_add_qml_module(home-automation
     URI home-automation

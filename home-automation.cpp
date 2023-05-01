@@ -1,7 +1,4 @@
-// Copyright (C) 2017 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
-
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QSettings>
@@ -10,9 +7,9 @@
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setApplicationName("Smart Home Central");
+    QApplication::setApplicationName("Smart Home Central");
 
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     QIcon::setThemeName("smarthome");
 
