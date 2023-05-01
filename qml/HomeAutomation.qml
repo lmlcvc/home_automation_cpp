@@ -86,20 +86,14 @@ ApplicationWindow {
                     }
 
                     FeatureButton {
-                        text: qsTr("Rooms")
-                        icon.name: "rooms"
-                        Layout.fillHeight: true
-                    }
-
-                    FeatureButton {
-                        text: qsTr("Message")
-                        icon.name: "message"
-                        Layout.fillHeight: true
-                    }
-
-                    FeatureButton {
                         text: qsTr("Statistics")
                         icon.name: "statistics"
+                        Layout.fillHeight: true
+                    }
+
+                    FeatureButton {
+                        text: qsTr("Security")
+                        icon.name: "security"
                         Layout.fillHeight: true
                     }
 
@@ -122,33 +116,6 @@ ApplicationWindow {
 
                 ColumnLayout {
                     spacing: 16
-
-                    ButtonGroup {
-                        id: viewButtonGroup
-                        buttons: viewTypeRowLayout.children
-                    }
-
-                    RowLayout {
-                        id: viewTypeRowLayout
-                        spacing: 3
-
-                        Layout.bottomMargin: 12
-
-                        Button {
-                            text: qsTr("Compact")
-                            font.pixelSize: fontSizeExtraSmall
-                            checked: true
-
-                            Layout.fillWidth: true
-                        }
-                        Button {
-                            text: qsTr("Full")
-                            font.pixelSize: fontSizeExtraSmall
-                            checkable: true
-
-                            Layout.fillWidth: true
-                        }
-                    }
 
                     LargeLabel {
                         text: qsTr("AIR CON (°C)")
@@ -197,26 +164,6 @@ ApplicationWindow {
 
                             Layout.fillWidth: true
                         }
-                        //                        LargeLabel {
-                        //                            text: qsTr("AUX")
-                        //                            color: colorLightGrey
-                        //                            font.pixelSize: fontSizeMedium * 0.8
-                        //                            horizontalAlignment: Label.AlignHCenter
-                        //                            glowEnabled: false
-
-                        //                            Layout.alignment: Qt.AlignBottom
-                        //                            Layout.fillWidth: true
-                        //                        }
-                        //                        LargeLabel {
-                        //                            text: qsTr("MP3")
-                        //                            color: colorDarkGrey
-                        //                            font.pixelSize: fontSizeMedium * 0.6
-                        //                            horizontalAlignment: Label.AlignRight
-                        //                            glowEnabled: false
-
-                        //                            Layout.alignment: Qt.AlignBottom
-                        //                            Layout.fillWidth: true
-                        //                        }
                     }
 
                     Frame {
@@ -336,21 +283,15 @@ ApplicationWindow {
                         x: parent.width * 0.88
                         y: parent.height * 0.56
 
-                        //                        ChartView {
-                        //                            title: "Line"
-                        //                            antialiasing: true
+                        //                    ChartView {
+                        //                        antialiasing: true
 
-                        //                            LineSeries {
-                        //                                name: "LineSeries"
-                        //                                XYPoint { x: 0; y: 0 }
-                        //                                XYPoint { x: 1.1; y: 2.1 }
-                        //                                XYPoint { x: 1.9; y: 3.3 }
-                        //                                XYPoint { x: 2.1; y: 2.1 }
-                        //                                XYPoint { x: 2.9; y: 4.9 }
-                        //                                XYPoint { x: 3.4; y: 3.0 }
-                        //                                XYPoint { x: 4.1; y: 3.3 }
-                        //                            }
+                        //                        PieSeries {
+                        //                            id: pieSeries
+                        //                            PieSlice { label: "eaten"; value: 94.9 }
+                        //                            PieSlice { label: "not yet eaten"; value: 5.1 }
                         //                        }
+                        //                    }
                     }
                 }
             }
@@ -451,6 +392,7 @@ ApplicationWindow {
                     }
 
                     // TODO get list of devices for room and fill scroll accordingly
+                    // TODO equal spacing between device name and button for all
 
                     ScrollView {
                         Layout.fillHeight: true
@@ -462,73 +404,30 @@ ApplicationWindow {
                         Layout.fillWidth: true
 
 
-                        Container {
-                            id: devicesBar
+                        //                        Container {
+                        //                            id: devicesBar
 
-                            currentIndex: 1
+                        //                            currentIndex: 1
 
-                            Layout.fillHeight: true
-
-
-                            SwitchDelegate {
-                                text: qsTr("AC")
-                                checked: true
-                                //                            leftPadding: 0
-                                //                            rightPadding: 0
-                                //                            topPadding: 0
-                                //                            bottomPadding: 0
-
-                                Layout.fillWidth: true
-                            }
-
-                            SwitchDelegate {
-                                text: qsTr("Light 1")
-                                //                            leftPadding: 0
-                                //                            rightPadding: 0
-                                //                            topPadding: 0
-                                //                            bottomPadding: 0
-
-                                Layout.fillWidth: true
-                            }
-
-                            SwitchDelegate {
-                                text: qsTr("Light 2")
-                                //                            checked: true
-                                //                            leftPadding: 0
-                                //                            rightPadding: 0
-                                //                            topPadding: 0
-                                //                            bottomPadding: 0
-
-                                Layout.fillWidth: true
-                            }
-
-                            SwitchDelegate {
-                                text: qsTr("Humidifier")
-                                //                            leftPadding: 0
-                                //                            rightPadding: 0
-                                //                            topPadding: 0
-                                //                            bottomPadding: 0
-
-                                Layout.fillWidth: true
-                            }
-
-                            SwitchDelegate {
-                                text: qsTr("Smart TV")
-                                //                            leftPadding: 0
-                                //                            rightPadding: 0
-                                //                            topPadding: 0
-                                //                            bottomPadding: 0
-
-                                Layout.fillWidth: true
-                            }
+                        //                            Layout.fillHeight: true
 
 
-                            Item {
-                                Layout.fillHeight: true
-                            }
+                        SwitchDelegate {
+                            text: qsTr("AC")
 
+
+                            checked: true
+                            leftPadding: 0
+                            rightPadding: 0
+                            topPadding: 0
+                            bottomPadding: 0
+
+                            Layout.fillWidth: true
                         }
 
+                        Item {
+                            Layout.fillHeight: true
+                        }
                     }
                 }
             }
@@ -560,6 +459,8 @@ ApplicationWindow {
                     Item {
                         Layout.fillHeight: true
                     }
+
+                    // TODO unclickable if not on dashboard
 
                     FeatureButton {
                         text: qsTr("Living Room")
