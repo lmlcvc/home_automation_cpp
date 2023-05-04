@@ -8,10 +8,9 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick QuickControls2)
 
 qt_add_executable(home-automation WIN32 MACOSX_BUNDLE
     home-automation.cpp
+    serialportcommunication.h
+    serialportcommunication.cpp
 )
-
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
-target_link_libraries(home-automation PRIVATE Qt6::Widgets)
 
 qt_add_qml_module(home-automation
     URI home-automation
@@ -132,3 +131,15 @@ target_link_libraries(home-automation PUBLIC
     Qt::Quick
     Qt::QuickControls2
 )
+
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS SerialPort)
+
+target_link_libraries(home-automation PRIVATE
+    Qt6::Widgets
+    Qt6::SerialPort
+)
+
+
+#find_package(Qt6 REQUIRED COMPONENTS SerialPort)
+#target_link_libraries(home-automation PRIVATE Qt6::SerialPort)
